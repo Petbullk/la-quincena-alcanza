@@ -4,6 +4,39 @@ const SUPABASE_ANON_KEY = "sb_publishable_oZwgBAN3k4IKWPrUsF927w_psBwUA08";
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// ---- EmailJS (envío de correos del regalo gratis; la clave pública va en el navegador por diseño) ----
+const EMAILJS_PUBLIC_KEY = "PzGqOtjRgjsABL8jw";
+const EMAILJS_SERVICE_ID = "service_fwil0xe";
+const EMAILJS_TEMPLATE_HOJA = "template_kuxys9o";
+const EMAILJS_TEMPLATE_BIENVENIDA = "template_yhq1ing";
+
+if (window.emailjs) {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
+
+async function sendGiftEmails(name, email, accepts) {
+  if (!window.emailjs) {
+    console.error("EmailJS no cargó.");
+    return false;
+  }
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_HOJA, {
+      to_name: name,
+      to_email: email,
+    });
+    if (accepts) {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_BIENVENIDA, {
+        to_name: name,
+        to_email: email,
+      });
+    }
+    return true;
+  } catch (err) {
+    console.error("Error al enviar el correo:", err);
+    return false;
+  }
+}
+
 // ---- Calculadora de "tu número por día" ----
 document.getElementById("calc-form").addEventListener("submit", function (event) {
   event.preventDefault();
@@ -73,15 +106,17 @@ document.getElementById("gift-form").addEventListener("submit", async function (
       .from("subscribers")
       .insert([{ name: name, email: email, accepts_marketing: accepts }]);
 
-    if (error) {
-      // Código 23505 = correo ya registrado (email único).
-      if (error.code === "23505") {
-        showDownload("¡Listo! Ese correo ya estaba registrado, aquí tienes tu hoja.");
-      } else {
-        throw error;
-      }
+    if (error && error.code !== "23505") {
+      throw error;
+    }
+
+    // Enviar el correo con el enlace de descarga (y la bienvenida si aceptó novedades).
+    const emailSent = await sendGiftEmails(name, email, accepts);
+
+    if (emailSent) {
+      showDownload("¡Listo! Te acabamos de enviar la hoja a tu correo " + email + ". Revisa tu bandeja de entrada.");
     } else {
-      showDownload("¡Listo! Ya es tuya. Aquí tienes tu hoja.");
+      showDownload("¡Listo! No pudimos enviarte el correo, pero aquí tienes tu hoja.");
     }
   } catch (err) {
     console.error("Error al guardar el suscriptor:", err);

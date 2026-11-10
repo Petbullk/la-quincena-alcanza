@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Quincena Alcanza — Que el dinero te rinda hasta el último día de la quincena</title>
+  <meta name="description" content="La Quincena Alcanza te enseña a que el dinero rinda sin ganar más. Consejos de presupuesto, ahorro, deudas y gastos hormiga, explicados en español sencillo, para la vida real.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>La Quincena Alcanza</h1>
+      <p class="slogan">Que el dinero te rinda hasta el último día de la quincena.</p>
+      <p class="hero-sub">Consejos de presupuesto, ahorro, deudas y gastos hormiga, explicados en español sencillo, para la vida real. Aquí no hablamos como banco: hablamos como tú.</p>
+      <a class="btn btn-gold" href="#ebook">Ver el plan de 30 días</a>
+      <a class="btn btn-outline" href="#regalo">Descargar la hoja gratis</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section problem">
+      <div class="container">
+        <h2>Si tu quincena dura 10 días, no es mala suerte</h2>
+        <p>Es que nadie te enseñó a ordenarla. La renta, la luz, la comida, el transporte… y de repente ya es día 10 y no sabes en qué se fue el dinero. No ganas poco: el dinero se te escapa por los gastos hormiga, por no tener un plan y por pagar primero a todos menos a ti.</p>
+        <p>La Quincena Alcanza es un plan sencillo, de 30 días, para que el dinero te rinda sin ganar más.</p>
+      </div>
+    </section>
+
+    <section class="section ebook" id="ebook">
+      <div class="container">
+        <h2>El ebook: La Quincena Alcanza</h2>
+        <p class="ebook-title">El plan de 30 días para que el dinero te rinda sin ganar más</p>
+        <p>Un plan de 30 días, una acción por día, para ordenar tu quincena de una vez por todas. Cada día trae una idea clara y una acción concreta de máximo 15 minutos.</p>
+        <div class="weeks">
+          <div class="week">
+            <h3>Semana 1 · Ordenar</h3>
+            <p>Cuánto entra, cuánto sale, tus gastos fijos y la regla de los 3 sobres. Primero se ordena, luego se ahorra.</p>
+          </div>
+          <div class="week">
+            <h3>Semana 2 · Cazar gastos hormiga</h3>
+            <p>Apps de comida, suscripciones que no usas, el Oxxo de todos los días y los antojos. Los ladrones de tu quincena, uno por uno.</p>
+          </div>
+          <div class="week">
+            <h3>Semana 3 · Deudas</h3>
+            <p>Lista tus deudas, elige cómo atacarlas, negocia y deja de pagar intereses de más. La tarjeta deja de ser un problema.</p>
+          </div>
+          <div class="week">
+            <h3>Semana 4 · Ahorro y colchón</h3>
+            <p>Apartar primero, el fondo de emergencia, el reto de 20 pesos y tu presupuesto para la siguiente quincena.</p>
+          </div>
+        </div>
+        <div class="price-box">
+          <p class="price-old">$149 MXN</p>
+          <p class="price-now">$99 MXN</p>
+          <p class="price-note">Precio de lanzamiento para los primeros 50 compradores.</p>
+          <p class="price-code">Usa el código <strong>LANZAMIENTO</strong> en Gumroad y llévate el 33% de descuento.</p>
+          <a class="btn btn-gold btn-big" href="https://laquincena.gumroad.com/l/la-quincena-alcanza-plan-30-dias" target="_blank" rel="noopener">Comprar el ebook en Gumroad</a>
+          <p class="price-note">39 páginas en PDF. Lo recibes de inmediato por correo después de pagar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section calculator" id="calculadora">
+      <div class="container">
+        <h2>Calcula tu número por día</h2>
+        <p>¿Cuánto puedes gastar por día sin quedarte sin dinero? Escribe tus números y te lo decimos.</p>
+        <form id="calc-form" class="calc-form">
+          <label for="ingreso">¿Cuánto ganas en la quincena? ($)</label>
+          <input type="number" id="ingreso" min="0" step="1" placeholder="Ej. 6000" required>
+          <label for="fijos">¿Cuánto son tus gastos fijos? (renta, luz, comida, transporte) ($)</label>
+          <input type="number" id="fijos" min="0" step="1" placeholder="Ej. 3500" required>
+          <label for="ahorro">¿Cuánto quieres ahorrar? ($)</label>
+          <input type="number" id="ahorro" min="0" step="1" placeholder="Ej. 600" required>
+          <button type="submit" class="btn btn-green">Calcular mi número</button>
+        </form>
+        <div id="calc-result" class="calc-result" hidden>
+          <p class="calc-number">Tu número por día: <strong id="numero-dia">$0</strong></p>
+          <p id="para-vivir"></p>
+          <p id="calc-warning" class="calc-warning" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gift" id="regalo">
+      <div class="container">
+        <h2>Regalo gratis: La hoja de la quincena</h2>
+        <p>La plantilla para ordenar tu quincena en una sola hoja: tu presupuesto quincenal, los 7 ladrones de la quincena y el reto de 30 días con 20 pesos. Imprímela o cópiala y úsala cada quincena.</p>
+        <form id="gift-form" class="gift-form">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Tu nombre" required>
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" placeholder="tu@correo.com" required>
+          <label class="checkbox-label">
+            <input type="checkbox" id="novedades">
+            Quiero recibir correos con novedades y/o ofertas de La Quincena Alcanza
+          </label>
+          <button type="submit" class="btn btn-gold" id="gift-submit">Quiero mi hoja gratis</button>
+          <p id="gift-error" class="gift-error" hidden></p>
+        </form>
+        <div id="gift-success" class="gift-success" hidden>
+          <p id="gift-success-msg">¡Listo! Ya es tuya.</p>
+          <a class="btn btn-green btn-big" href="hoja-de-la-quincena.pdf" download="la-hoja-de-la-quincena.pdf">Descargar La hoja de la quincena (PDF)</a>
+        </div>
+        <p class="note">Sin costo. Solo te pedimos tu correo para enviártela. Es la misma hoja con la que empieza el plan del ebook.</p>
+      </div>
+    </section>
+
+    <section class="section social">
+      <div class="container">
+        <h2>Síguenos</h2>
+        <p>Todos los días publicamos un consejo nuevo para que tu quincena rinda.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=61596056717301" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/laquincenaalcanza/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@LaQuincenaAlcanza" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section legal">
+      <div class="container">
+        <h2>Términos y Condiciones</h2>
+        <p>La Quincena Alcanza vende productos digitales (archivos PDF) que se entregan de forma inmediata por correo electrónico después de confirmado el pago, a través de Gumroad. Los precios se muestran en pesos mexicanos (MXN); el cobro se procesa en dólares estadounidenses al tipo de cambio del día. El ebook y la hoja de la quincena son para uso personal del comprador: no está permitida su reventa, redistribución ni publicación. El contenido es educativo sobre finanzas personales y no constituye asesoría financiera profesional; los resultados dependen de la situación de cada persona. Al comprar, el cliente acepta estos términos.</p>
+        <h2>Aviso de Privacidad</h2>
+        <p>Responsable: La Quincena Alcanza, contacto laquincenaalcanza@gmail.com. Los datos que se recaban (nombre y correo electrónico) se usan únicamente para entregar los productos comprados o regalados y para enviar información de La Quincena Alcanza, solo a quienes lo autoricen. No se venden ni se comparten con terceros, salvo con Gumroad, que procesa el pago y la entrega, y con Supabase, que guarda la lista de suscriptores. El titular puede ejercer sus derechos de acceso, rectificación, cancelación y oposición (derechos ARCO) escribiendo a laquincenaalcanza@gmail.com.</p>
+        <h2>Política de Reembolsos</h2>
+        <p>Por tratarse de productos digitales que se entregan de inmediato, no hay reembolsos una vez descargado el archivo, salvo que el archivo llegue dañado o no llegue: en ese caso, escríbenos a laquincenaalcanza@gmail.com dentro de los 7 días posteriores a la compra y lo reponemos o reembolsamos.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 La Quincena Alcanza · Que el dinero te rinda hasta el último día de la quincena.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
